@@ -2,6 +2,7 @@ import customtkinter as ctk
 from tkinter import *
 from tkinter import PhotoImage
 from tkinter import font
+import _mysql_connector
 
 ctk.set_appearance_mode("light")
 
