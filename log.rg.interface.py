@@ -4,6 +4,8 @@ from tkinter import PhotoImage
 import webbrowser
 import time
 class LoginApp:
+    
+    #janela principal    
     def __init__(self, master):
         self.janela = master
         self.janela.geometry("900x600")
@@ -13,7 +15,8 @@ class LoginApp:
         self.mais_visivel = True
         self.mais_visivel = False
         self.tela_login()
-
+        
+    #tela de login
     def tela_login(self):
         self.login_frame = ctk.CTkFrame(master=self.janela, width=450, height=600, fg_color="white", corner_radius=0)
         self.login_frame.pack(side=RIGHT)
@@ -68,13 +71,15 @@ class LoginApp:
         fonte_cadastre = ctk.CTkFont("bold", size=fonte_cadastre)
         cadastre_button = ctk.CTkButton(master=self.login_frame, text="Cadastre-se", font=fonte_cadastre, width=10, fg_color="white", text_color="#0d84ff", hover_color="white", command=self.tela_register)
         cadastre_button.place(x=239, y=500)
-
+        
+    #facebook link
     def login_with_facebook(self):
 
         self.facebook_login_url = "https://www.facebook.com/login.php"
 
         webbrowser.open(self.facebook_login_url)
-
+        
+    #tela de menu do app
     def menu(self):
         self.login_frame.pack_forget()
         self.logo_frame.pack_forget()
@@ -135,7 +140,7 @@ class LoginApp:
         lbl_img9 = ctk.CTkLabel(self.funções_frame, image=img9 , text= None, width=0, height=0)
         lbl_img9.place(x=8, y=330)
 
-
+    #Pagina inicial do app
     def inicial(self):
         if hasattr(self, 'despesas_frame') and self.despesas_frame:
             self.despesas_frame.destroy()
@@ -145,7 +150,8 @@ class LoginApp:
             self.perfil_frame.destroy()
 
         self.app_frame.place(x=170,y=0)
-
+        
+    #Pagina de despesas do app
     def despesas(self):
         if hasattr(self, 'app_frame') and self.app_frame:
             self.app_frame.pack_forget()    
@@ -156,7 +162,8 @@ class LoginApp:
 
         self.despesas_frame = ctk.CTkFrame(master=self.janela, width=730, height=600, fg_color="white", corner_radius=0)
         self.despesas_frame.place(x=170,y=0)
-
+        
+    #Pagina de dividas do app
     def dividas(self):
         if hasattr(self, 'app_frame') and self.app_frame:
             self.app_frame.pack_forget()    
@@ -166,8 +173,9 @@ class LoginApp:
             self.perfil_frame.destroy()
 
         self.dividas_frame = ctk.CTkFrame(master=self.janela, width=730, height=600, fg_color="white", corner_radius=0)
-        self.dividas_frame.place(x=170,y=0)    
-
+        self.dividas_frame.place(x=170,y=0)
+            
+    #Pagina de perfil do app
     def perfil(self):
         if hasattr(self, 'app_frame') and self.app_frame:
             self.app_frame.pack_forget()    
@@ -179,6 +187,7 @@ class LoginApp:
         self.perfil_frame = ctk.CTkFrame(master=self.janela, width=730, height=600, fg_color="white", corner_radius=0)
         self.perfil_frame.place(x=170,y=0) 
 
+    #botao 'mais' do menu do app
     def mais(self):
 
         if self.mais_visivel:
@@ -195,7 +204,8 @@ class LoginApp:
 
             logout_button = ctk.CTkButton(master=self.mais_frame, text="logout                           ", width=168, height=35, fg_color="white", text_color="#333333", hover_color="#F0F0F0", font=fonte_logout, command=self.logout)
             logout_button.place(x=8, y=8)
-
+    
+    #botao 'logout' do menu do app
     def logout(self):
         if hasattr(self, 'despesas_frame') and self.despesas_frame:
             self.despesas_frame.destroy()
@@ -211,7 +221,8 @@ class LoginApp:
             self.app_frame.destroy()
         self.login_frame.pack(side=RIGHT)
         self.logo_frame.pack(side=LEFT)
-
+        
+    #tela de registro
     def tela_register(self):
         self.login_frame.pack_forget()
         self.rg_frame = ctk.CTkFrame(master=self.janela, width=450, height=600, fg_color="white", corner_radius=0)
@@ -275,7 +286,8 @@ class LoginApp:
 
         cookies_button = ctk.CTkButton(self.rg_frame, text="Política de Cookies.", width=0, text_color="#211a60", fg_color="transparent", font= links_fonte, hover_color="white", command=self.cookies)
         cookies_button.place(x=160, y=380)
-
+        
+    #link dos termos 
     def termos(self):
         self.termos_janela = ctk.CTkToplevel(self.janela)
         self.termos_janela.geometry("600x600")
@@ -286,7 +298,7 @@ class LoginApp:
         self.termos_frame = ctk.CTkFrame(master=self.termos_janela, width=600, height=600, fg_color="#E0F5FF", corner_radius=0)
         self.termos_frame.place(x=0 , y=0)
 
-
+    #link de privacidade
     def privacidade(self):
         self.privacidade_janela = ctk.CTkToplevel(self.janela)
         self.privacidade_janela.geometry("600x600")
@@ -314,7 +326,8 @@ class LoginApp:
         self.privacidade_texto_label.place(x=30,y=230)
         self.privacidade_texto_label = ctk.CTkLabel(self.privacidade_frame, font=fonte_privacidade_texto, text="Para nós, é importante que você saiba como controlar sua privacidade. Por isso, \ntambém mostramos onde gerenciar suas informações nas configurações das \nferramentas da Nubanco que você usa.", justify="left")
         self.privacidade_texto_label.place(x=30,y=340)
-
+        
+    #link de cookies
     def cookies(self):
         self.cookies_janela = ctk.CTkToplevel(self.janela)
         self.cookies_janela.geometry("600x600")
@@ -343,21 +356,25 @@ class LoginApp:
         self.cookies_texto_label.place(x=30,y=288)
         cookies_button = ctk.CTkButton(master=self.cookies_frame, text="Política de Privacidade", width=0, height=0, text_color="#211a60", fg_color="transparent", font= fonte_cookies_texto, hover_color="#E0F5FF", command=self.privacidade)
         cookies_button.place(x=381, y=304)
-
+        
+    #link do facebook 
     def rg_with_facebook(self):
         self.facebook_rg_url ="https://www.facebook.com/login.php"
         webbrowser.open(self.facebook_rg_url)   
-
+        
+    #botao 'conecte' da tela de registro
     def conecte(self):
         self.rg_frame.pack_forget()
 
         self.login_frame.pack(side=RIGHT)
-
+        
+    #botao 'casdastre-se' da tela de resgistro
     def cadastre_se(self):
 
         self.rg_frame.pack_forget()    
 
         self.login_frame.pack(side=RIGHT)
+        
 def main():
     janela = ctk.CTk()
     app = LoginApp(janela)
