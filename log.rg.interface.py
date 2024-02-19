@@ -139,6 +139,9 @@ class LoginApp:
         img9 = PhotoImage(file="perfil.png")
         lbl_img9 = ctk.CTkLabel(self.funções_frame, image=img9 , text= None, width=0, height=0)
         lbl_img9.place(x=8, y=330)
+        
+        notificações_botao = ctk.CTkButton(self.funções_frame, text="Notificações", width=50, fg_color="white", text_color="#333333", hover_color="white", font=fonte_botoes_menu, command=self.notificações)
+        notificações_botao.place(x=40, y=385)
 
     #Pagina inicial do app
     def inicial(self):
@@ -148,7 +151,9 @@ class LoginApp:
             self.dividas_frame.destroy()
         if hasattr(self, 'perfil_frame') and self.perfil_frame:
             self.perfil_frame.destroy()
-
+        if hasattr(self, 'notificações_frame') and self.notificações_frame:
+            self.notificações_frame.destroy()
+            
         self.app_frame.place(x=170,y=0)
         
     #Pagina de despesas do app
@@ -159,7 +164,9 @@ class LoginApp:
             self.dividas_frame.destroy()
         if hasattr(self, 'perfil_frame') and self.perfil_frame:
             self.perfil_frame.destroy()
-
+        if hasattr(self, 'notificações_frame') and self.notificações_frame:
+            self.notificações_frame.destroy()
+            
         self.despesas_frame = ctk.CTkFrame(master=self.janela, width=730, height=600, fg_color="white", corner_radius=0)
         self.despesas_frame.place(x=170,y=0)
         
@@ -171,7 +178,9 @@ class LoginApp:
             self.despesas_frame.destroy()
         if hasattr(self, 'perfil_frame') and self.perfil_frame:
             self.perfil_frame.destroy()
-
+        if hasattr(self, 'notificações_frame') and self.notificações_frame:
+            self.notificações_frame.destroy()
+            
         self.dividas_frame = ctk.CTkFrame(master=self.janela, width=730, height=600, fg_color="white", corner_radius=0)
         self.dividas_frame.place(x=170,y=0)
             
@@ -183,10 +192,26 @@ class LoginApp:
             self.despesas_frame.destroy()
         if hasattr(self, 'dividas_frame') and self.dividas_frame:
             self.dividas_frame.destroy()
-
+         if hasattr(self, 'notificações_frame') and self.notificações_frame:
+            self.notificações_frame.destroy()
+        
         self.perfil_frame = ctk.CTkFrame(master=self.janela, width=730, height=600, fg_color="white", corner_radius=0)
         self.perfil_frame.place(x=170,y=0) 
-
+    
+     
+    def notificações(self):
+        if hasattr(self, 'app_frame') and self.app_frame:
+            self.app_frame.pack_forget()    
+        if hasattr(self, 'dividas_frame') and self.dividas_frame:
+            self.dividas_frame.destroy()
+        if hasattr(self, 'perfil_frame') and self.perfil_frame:
+            self.perfil_frame.destroy()
+        if hasattr(self, 'despesas_frame') and self.despesas_frame:
+            self.despesas_frame.destroy()
+        
+        self.notificações_frame = ctk.CTkFrame(master=self.janela, width=730, height=600, fg_color="white", corner_radius=0)
+        self.notificações_frame.place(x=170,y=0)
+        
     #botao 'mais' do menu do app
     def mais(self):
 
