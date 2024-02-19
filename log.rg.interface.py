@@ -316,8 +316,7 @@ class LoginApp:
     def termos(self):
         self.termos_janela = ctk.CTkToplevel(self.janela)
         self.termos_janela.geometry("600x600")
-        self.termos_janela.grab_set()
-        self.termos_janela.iconbitmap("nubanco_privacidade.ico")   
+        self.termos_janela.grab_set() 
         self.termos_janela.title("Central de Privacidade")
 
         self.termos_frame = ctk.CTkFrame(master=self.termos_janela, width=600, height=600, fg_color="#E0F5FF", corner_radius=0)
@@ -327,8 +326,7 @@ class LoginApp:
     def privacidade(self):
         self.privacidade_janela = ctk.CTkToplevel(self.janela)
         self.privacidade_janela.geometry("600x600")
-        self.privacidade_janela.grab_set()
-        self.privacidade_janela.iconbitmap("nubanco_privacidade.ico")   
+        self.privacidade_janela.grab_set()   
         self.privacidade_janela.title("Central de Privacidade")
 
         self.privacidade_frame = ctk.CTkFrame(master=self.privacidade_janela, width=600, height=600, fg_color="#E0F5FF", corner_radius=0)
@@ -356,8 +354,7 @@ class LoginApp:
     def cookies(self):
         self.cookies_janela = ctk.CTkToplevel(self.janela)
         self.cookies_janela.geometry("600x600")
-        self.cookies_janela.grab_set()
-        self.cookies_janela.iconbitmap("nubanco_privacidade.ico")   
+        self.cookies_janela.grab_set()   
         self.cookies_janela.title("Central de Privacidade")
 
 
